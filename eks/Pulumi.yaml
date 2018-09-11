@@ -1,27 +1,27 @@
-name: Amazon EKS
+name: eks-cluster
 description: An Amazon EKS cluster
 runtime: nodejs
 template:
   description: An Amazon EKS cluster
   config:
     aws:region:
-      description: The AWS region to deploy into
-      default: "us-east-2"
+      description: The AWS region to deploy into (`us-east-1`, `us-west-2`, `eu-west-1`)
+      default: "us-west-2"
     instanceType: 
-      description: The instance type to use for the cluster's nodes.
+      description: The instance type to use for the cluster's nodes
       default: "t2.medium"
     desiredCapacity:
-      description: The number of worker nodes that should be running in the cluster.
+      description: The number of worker nodes that should be running in the cluster
       default: "2"
     minSize:
-      description: The minimum number of worker nodes running in the cluster.
+      description: The minimum number of worker nodes running in the cluster
       default: "1"
     maxSize:
-      description: The maximum number of worker nodes running in the cluster.
+      description: The maximum number of worker nodes running in the cluster
       default: "2"
     storageClass:
-      description: Create a storage class for the given volume type and make it the cluster's default StorageClass.
+      description: Create a storage class for the given volume type and make it the cluster's default StorageClass
       default: "gp2"
     deployDashboard:
-      description: Whether or not to deploy the Kubernetes dashboard to the cluster.
+      description: Whether or not to deploy the Kubernetes dashboard to the cluster
       default: "true"
