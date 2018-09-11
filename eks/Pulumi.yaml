@@ -1,4 +1,4 @@
-name: Amazon EKS
+name: eks-cluster
 description: An Amazon EKS cluster
 runtime: nodejs
 template:
