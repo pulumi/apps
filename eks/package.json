@@ -1,13 +1,14 @@
 {
     "name": "eks-cluster",
     "devDependencies": {
-        "typescript": "^2.7.2",
+        "typescript": "^3.4.5",
         "@types/node": "latest"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^0.15.0",
-        "@pulumi/aws": "^0.15.0",
-        "@pulumi/aws-infra": "^0.15.0",
-        "@pulumi/eks": "^0.15.0"
+        "@pulumi/pulumi": "latest",
+        "@pulumi/aws": "latest",
+        "@pulumi/awsx": "latest",
+        "@pulumi/eks": "latest",
+        "@pulumi/kubernetes": "latest"
     }
 }

@@ -1,5 +1,5 @@
 import * as aws from "@pulumi/aws";
-import * as awsinfra from "@pulumi/aws-infra";
+import * as awsx from "@pulumi/awsx";
 import * as pulumi from "@pulumi/pulumi";
 import * as eks from "@pulumi/eks";
 
@@ -13,12 +13,14 @@ const storageClass = config.get("storageClass") as eks.EBSVolumeType;
 const deployDashboard = config.getBoolean("deployDashboard");
 
 // Create a VPC for our cluster.
-const network = new awsinfra.Network("eksNetwork");
+const vpc = new awsx.ec2.Vpc("eksvpc", {
+    subnets: [{ type: "public" }],
+});
 
 // Create an EKS cluster with the given configuration.
 const cluster = new eks.Cluster("cluster", {
-    vpcId: network.vpcId,
-    subnetIds: network.subnetIds,
+    vpcId: vpc.id,
+    subnetIds: vpc.publicSubnetIds,
     instanceType: instanceType,
     desiredCapacity: desiredCapacity,
     minSize: minSize,
