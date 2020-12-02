@@ -1,0 +1,9 @@
+name: lambda-containers
+description: An AWS Lambda function packaged as a Docker container
+runtime: nodejs
+template:
+  description: An AWS Lambda function packaged as a Docker container
+  config:
+    aws:region:
+      description: The AWS region to deploy into (`us-east-1`, `us-west-2`, `eu-west-1`)
+      default: "us-west-2"
