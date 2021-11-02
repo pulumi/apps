@@ -1,0 +1,8 @@
+name: container-apps
+description: Creates an Azure Container App and deploys a custom Docker image to it
+runtime: nodejs
+template:
+  description: Creates an Azure Container App and deploys a custom Docker image to it
+  config:
+    azure-native:location:
+      description: The Azure region to deploy into
