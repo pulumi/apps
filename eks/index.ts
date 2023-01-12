@@ -14,12 +14,12 @@ const deployDashboard = config.getBoolean("deployDashboard");
 
 // Create a VPC for our cluster.
 const vpc = new awsx.ec2.Vpc("eksvpc", {
-    subnets: [{ type: "public" }],
+    subnetSpecs: [{ type: awsx.ec2.SubnetType.Public }],
 });
 
 // Create an EKS cluster with the given configuration.
 const cluster = new eks.Cluster("cluster", {
-    vpcId: vpc.id,
+    vpcId: vpc.vpcId,
     subnetIds: vpc.publicSubnetIds,
     instanceType: instanceType,
     desiredCapacity: desiredCapacity,
