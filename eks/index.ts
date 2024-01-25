@@ -13,9 +13,7 @@ const storageClass = config.get("storageClass") as eks.EBSVolumeType;
 const deployDashboard = config.getBoolean("deployDashboard");
 
 // Create a VPC for our cluster.
-const vpc = new awsx.ec2.Vpc("eksvpc", {
-    subnetSpecs: [{ type: awsx.ec2.SubnetType.Public }],
-});
+const vpc = new awsx.ec2.Vpc("eksvpc", {});
 
 // Create an EKS cluster with the given configuration.
 const cluster = new eks.Cluster("cluster", {
